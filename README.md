@@ -3,7 +3,7 @@
 ### Installation de l'application
 
 ```bash
-git clone ...
+git clone https://github.com/ulrich/routin-test
 ```
 
 ### Commandes Docker Compose
@@ -36,4 +36,7 @@ Ouvrez votre navigateur et allez à l'adresse suivante : `http://localhost:9091/
 
 ### Travail à faire
 
-1. Afficher la liste des utilisateurs via CURL ou navigateur si CURL n'est pas disponible.
+1. Afficher la liste des employés via CURL ou navigateur si CURL n'est pas disponible.
+2. Ne pas retourner d'objet du domaine dans la réponse, mais plutôt un DTO (sans l'id).
+3. Retourner la liste de compagnies comme sur le modèle des employés.
+4. Avoir un use-case qui retourne la liste des employés d'une compagnie.
