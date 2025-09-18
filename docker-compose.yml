@@ -1,0 +1,30 @@
+services:
+  routin-db:
+    image: postgres:17
+    restart: "no"
+    environment:
+      - POSTGRES_USER=routin-user
+      - POSTGRES_PASSWORD=routin-password
+      - POSTGRES_DB=routindb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+#      - ./scripts:/docker-entrypoint-initdb.d
+    networks:
+      - postgres-network
+  adminer:
+    image: adminer
+    restart: "no"
+    ports:
+      - "9091:8080"
+    depends_on:
+      - routin-db
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network: { }
+
+volumes:
+  pgdata: { }
