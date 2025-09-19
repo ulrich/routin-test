@@ -29,9 +29,7 @@ public class EmployeeRepository implements EmployeeRepositoryPort {
 
     @Override
     public List<Employee> fetchAll() {
-        return employeeJPARepository.findAll().stream()
-                .map(EmployeeEntity::toDomain)
-                .collect(Collectors.toList());
+        return List.of();
     }
 
     @Transactional

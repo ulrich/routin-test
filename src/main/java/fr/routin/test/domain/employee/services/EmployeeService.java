@@ -12,13 +12,11 @@ public record EmployeeService(
         EmployeeRepositoryPort employeeRepositoryPort) {
 
     public List<Employee> findAll() {
-        return employeeRepositoryPort.fetchAll();
+        return List.of();
     }
 
     public List<Employee> getEmployeesByCompanyId(Long companyId) {
-        return findAll().stream()
-                .filter(employee -> employee.companyId().equals(companyId))
-                .toList();
+        return List.of();
     }
 
     public Employee create(Employee employee) {

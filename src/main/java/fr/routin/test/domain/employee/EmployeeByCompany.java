@@ -10,16 +10,4 @@ public record EmployeeByCompany(
         CompanyService companyService,
         EmployeeService employeeService
 ) {
-
-    public List<Employee> getEmployeesByCompanyId(Long companyId) {
-        companyService.exists(companyId);
-
-        return employeeService.getEmployeesByCompanyId(companyId);
-    }
-
-    public Employee create(Employee employee) {
-        //companyService.exists(employee.companyId());
-
-        return employeeService.create(employee);
-    }
 }

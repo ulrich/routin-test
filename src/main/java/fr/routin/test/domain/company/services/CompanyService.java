@@ -14,15 +14,13 @@ public record CompanyService(CompanyRepositoryPort companyRepositoryPort) {
     }
 
     public void exists(Long companyId) {
-        if (!companyRepositoryPort.exists(companyId)) {
-            throw new RuntimeException("Company with id " + companyId + " not found");
-        }
+        // FIXME: throw new RuntimeException("Company with id " + companyId + " not found");
     }
 
     public Company findById(Long companyId) {
         Optional<CompanyEntity> companyEntityOpt = companyRepositoryPort.findById(companyId);
 
-        if(companyEntityOpt.isEmpty()) {
+        if (companyEntityOpt.isEmpty()) {
             throw new RuntimeException("Company with id " + companyId + " not found");
         }
         return companyEntityOpt.get().toDomain();
