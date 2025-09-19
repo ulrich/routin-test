@@ -18,7 +18,7 @@ public record EmployeeByCompany(
     }
 
     public Employee create(Employee employee) {
-        companyService.exists(employee.companyId());
+        //companyService.exists(employee.companyId());
 
         return employeeService.create(employee);
     }

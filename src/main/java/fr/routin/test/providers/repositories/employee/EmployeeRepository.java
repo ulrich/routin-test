@@ -7,6 +7,7 @@ import fr.routin.test.providers.repositories.company.entities.CompanyEntity;
 import fr.routin.test.providers.repositories.company.interfaces.CompanyJpaRepository;
 import fr.routin.test.providers.repositories.employee.entities.EmployeeEntity;
 import fr.routin.test.providers.repositories.employee.interfaces.EmployeeJpaRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class EmployeeRepository implements EmployeeRepositoryPort {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     @Override
     public Employee save(Employee employee, Company company) {
         CompanyEntity companyEntity = companyJpaRepository.findById(company.id()).orElseThrow();

@@ -12,9 +12,10 @@ public class EmployeeServiceConfiguration {
 
     @Bean
     public EmployeeService employeeService(
+            CompanyService companyService,
             EmployeeRepositoryPort employeeRepositoryPort
     ) {
-        return new EmployeeService(employeeRepositoryPort);
+        return new EmployeeService(companyService, employeeRepositoryPort);
     }
 
     @Bean

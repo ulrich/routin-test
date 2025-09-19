@@ -14,7 +14,7 @@ public record CompanyService(CompanyRepositoryPort companyRepositoryPort) {
     }
 
     public void exists(Long companyId) {
-        if (companyRepositoryPort.exists(companyId)) {
+        if (!companyRepositoryPort.exists(companyId)) {
             throw new RuntimeException("Company with id " + companyId + " not found");
         }
     }
